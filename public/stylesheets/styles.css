@@ -1,5 +1,7 @@
 * {
 	font-family: "Montserrat", sans-serif !important;
+	margin-top: 5px;
+	padding: 0px;
 }
 
 body {
@@ -48,12 +50,7 @@ h3 {
 	color: #f8f9fa;
 }
 
-/* .container{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 
- } */
 .subcontainer {
 	display: flex;
 	flex-direction: column;
@@ -73,8 +70,21 @@ h3 {
 	color: white;
 	padding: 10px 30px;
 	border: 1px solid white;
+	margin: 5px;
+
 }
 
+.delete-mood{
+	padding: 5px 10px;
+	background-color: white;
+	opacity: 0.5;
+}
+.delete-mood > button {
+	color: black;
+}
+.form-delete-mood {
+	margin-top: 20px
+}
 .btn:hover {
 	background-color: white;
 	color: black;
@@ -87,7 +97,7 @@ h3 {
 
 #calendar {
 	margin-top: 50px;
-	width: 500px;
+	width: 516px;
 	color: white;
 }
 
@@ -115,6 +125,7 @@ button:hover {
 .form-container {
 	display: flex;
 	justify-content: center;
+	flex-direction: column;
 }
 
 .input {
@@ -137,4 +148,34 @@ button:hover {
 
 .input>a {
 	margin-top: 30px
+}
+
+ul li {
+color: white;
+list-style-type: none;
+}
+.container-mood {
+	display: flex;
+	justify-content: space-evenly;
+	margin-top: 15vh;
+}
+
+.mood {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 15px;
+	border: 1px solid white;
+	padding: 5px 0px;
+}
+
+ul{
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+}
+
+p {
+color: white;
+text-align: center;
 }

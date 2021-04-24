@@ -6,8 +6,7 @@ const userSchema = new Schema(
   {
     username: {type: String, required: true, createIndexes: true},
     password: {type: String, required: true},
-    moods: [{type: Schema.Types.ObjectId, ref:'Mood'}],
-    diary: {type: String}
+    moods: [{type: Schema.Types.ObjectId, ref:'Mood'}]
   
 }, { versionKey: false})
 

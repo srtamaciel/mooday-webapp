@@ -4,7 +4,10 @@ const Schema = mongoose.Schema
 
 const moodSchema = new Schema(
   {
-    mood: {type: String, required: true},
+    img: {type: String, enum: ['https://i.ibb.co/TMKFpHz/happy-doodle.png', 'https://i.ibb.co/MP7XLvs/sad-doodle.png', 'https://i.ibb.co/khsJP53/angry-doodle.png']},
+    mood: {type: String},
+    date: {type: String, default: Date.now()}
+
 }, { versionKey: false})
 
 

@@ -13,12 +13,16 @@ const checkForAuth = (req, res, next) =>{
   }
  }
 
-//GET Homepage
-router.get('/mood/new', checkForAuth, (req, res) => {
-  User.findById(req.user._id)
-  .populate('moods')
+//GET New mood
+router.get('/mood/new/:date', checkForAuth, (req, res) => {
+  Mood.findOne({date: req.params.date})
   .then((result)=>{
-    res.render('moods/newMood', {moods: result.moods});
+    User.findById(req.user._id)
+    .populate('moods')
+    .then((result)=>{
+      console.log(result)
+      res.render('moods/newMood', {moods: result.moods, date: req.params.date});
+    }) 
   })
   .catch((error)=>{
     res.send(error)
@@ -26,12 +30,14 @@ router.get('/mood/new', checkForAuth, (req, res) => {
 });
 
 //POST Create mood
-router.post('/mood/new', (req, res)=>{
-  Mood.create(req.body)
+router.post('/mood/new/:date', (req, res)=>{
+  Mood.create(req.params.date, req.body)
   .then((result) => {
+    console.log(result)
+    const date = result.date
     User.findByIdAndUpdate(req.user._id, {$push: {moods: result._id}})
     .then((result) => {
-      res.redirect('/mood/new')
+      res.redirect('/mood/new/' + date)
     })
   })
   .catch((err) => {

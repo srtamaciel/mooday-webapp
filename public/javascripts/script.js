@@ -9,6 +9,9 @@ const goBack = () =>{
   window.history.back();
 }
 
+//Day config
+
+
 //CALENDAR CONFIG
 
 document.addEventListener('DOMContentLoaded',() => {
@@ -23,13 +26,18 @@ document.addEventListener('DOMContentLoaded',() => {
       right: 'dayGridMonth'
     },
     dateClick: (info) => {
-       alert('clicked ' + info.dateStr);
-     /*  window.location.href = "http://localhost:3000/mood/new"; */
+      const dateStr = info.dateStr
+     /* alert('clicked ' + info.dateStr);  */
+       console.log(info) 
+      window.location.href = "/mood/new/" + dateStr;
+
 
     },
-    /* select: (info) => {
+    
+  /*   select: (info) => {
       alert('selected ' + info.startStr + ' to ' + info.endStr);
-    } */
+      console.log(info)
+    }  */
   });
 
   calendar.render();

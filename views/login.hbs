@@ -1,9 +1,9 @@
 
 <span><a onclick="goBack()" class="btn navbar">Go back</a></span>
 
-
-<h1>Let's log in</h1>
+<div class="container-mood">
 <div class="form-container">
+<h1>Let's log in</h1>
   <form action="/login" method="POST">
     <div class="input">
       <label for="username">Username</label>
@@ -20,3 +20,4 @@
 {{#if errorMessage}}
 <p>{{this.errorMessage}}</p>
 {{/if}}
+</div>

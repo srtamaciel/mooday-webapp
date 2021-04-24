@@ -1,26 +1,38 @@
 <span><a href="/profile" class="btn navbar">Your profile</a></span>
-<h1>How do you feeling today?</h1>
-<div class="form-container">
+<span><a onclick="goBack()" class="btn navbar">Go back</a></span>
 
-<form action="/mood/new" method="POST">
-  <div class="input">
-    <label for="mood"></label>
-    <input type="text" name="mood">
-    <a class="btn"><button type="submit">Create mood</button></a>
+<div class="container-mood">
+  <div class="form-container">
+    <h1>How are you today?</h1>
+    <p>{{date}}</p>
+    <form action="/mood/new/{{date}}" method="POST">
+      <div class="input">
+    
+        <label for="mood"></label>
+        <input type="text"  name="mood">
+
+        <a class="btn"><button type="submit">Don't find your mood? Create it!</button></a>
+
+      </div>
+    </form>
   </div>
-</form>
+
+  <div class="your-day-mood">
+    <h3>Your day mood: </h3>
+    <ul>
+      {{#each moods}}
+        <div class="mood">
+          <li>{{this.mood}}</li>
+          <li>{{this.date}}</li>
+          <form class="form-delete-mood" action="/new/{{_id}}/delete" method="POST">
+            <a class="delete-mood"><button type="submit">Delete mood</button></a>
+          </form>
+        </div>
+      {{/each}}
+    </ul>
+  </div>
+
+  {{#if errorMessage}}
+  <p>{{this.errorMessage}}</p> <a href=""></a>
+  {{/if}}
 </div>
-
-<h3>Your moods: </h3>
-<ul>
-  {{#each moods}}
-  <li>{{this.mood}} |</li>
-  <form action="/new/{{_id}}/delete" method="POST">
-    <a class="btn delete-mood"><button type="submit">Delete mood</button></a>
-  </form>
-  {{/each}}
-</ul>
-
-{{#if errorMessage}}
-<p>{{this.errorMessage}}</p> <a href=""></a>
-{{/if}}
