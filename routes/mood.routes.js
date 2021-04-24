@@ -13,7 +13,7 @@ const checkForAuth = (req, res, next) =>{
   }
  }
 
-//GET New mood
+//GET New mood on day selected
 router.get('/mood/new/:date', checkForAuth, (req, res) => {
   Mood.findOne({date: req.params.date})
   .then((result)=>{
@@ -29,9 +29,9 @@ router.get('/mood/new/:date', checkForAuth, (req, res) => {
   })
 });
 
-//POST Create mood
+//POST Create mood on day selected
 router.post('/mood/new/:date', (req, res)=>{
-  Mood.create(req.params.date, req.body)
+  Mood.create(req.params.date,  req.body)
   .then((result) => {
     console.log(result)
     const date = result.date
@@ -64,7 +64,7 @@ router.post('/new/:_id/delete', (req, res) => {
   Mood.findByIdAndDelete(req.params._id)
   .then((result)=>{
     console.log(result)
-    res.redirect('/mood/new')
+    res.redirect('/mood/new/:date')
   })
   .catch((error)=>{
     res.send(error)

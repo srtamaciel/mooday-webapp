@@ -23,7 +23,7 @@
       {{#each moods}}
         <div class="mood">
           <li>{{this.mood}}</li>
-          <li>{{this.date}}</li>
+         {{!--  <li>{{this.date}}</li> --}}
           <form class="form-delete-mood" action="/new/{{_id}}/delete" method="POST">
             <a class="delete-mood"><button type="submit">Delete mood</button></a>
           </form>
