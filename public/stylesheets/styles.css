@@ -1,0 +1,140 @@
+* {
+	font-family: "Montserrat", sans-serif !important;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 900%;
+	-webkit-animation: gradient 15s ease infinite;
+	animation: gradient 15s ease infinite;
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+
+	50% {
+		background-position: 100% 50%;
+	}
+
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+h1,
+h2,
+h3 {
+	text-align: center;
+	margin-bottom: .5rem;
+	font-weight: 500;
+	line-height: 1.2;
+	font-size: 2.5rem;
+	color: #f8f9fa;
+}
+
+/* .container{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+ } */
+.subcontainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.btn-group {
+	margin-bottom: 1.5rem;
+	margin-top: .5rem;
+	position: relative;
+	display: inline-flex;
+	vertical-align: middle;
+}
+
+.btn {
+	color: white;
+	padding: 10px 30px;
+	border: 1px solid white;
+}
+
+.btn:hover {
+	background-color: white;
+	color: black;
+	opacity: 0.5;
+}
+
+.text-light {
+	color: white;
+}
+
+#calendar {
+	margin-top: 50px;
+	width: 500px;
+	color: white;
+}
+
+.calendar-container {
+	display: flex;
+	justify-content: center;
+}
+
+span {
+	float: right;
+}
+
+button {
+	background: transparent;
+	border: none;
+	color: white
+}
+
+button:hover {
+	color: black;
+	background-color: white;
+	opacity: 0.5;
+}
+
+.form-container {
+	display: flex;
+	justify-content: center;
+}
+
+.input {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.input>label {
+	color: white;
+	padding: 10px;
+}
+
+.input>input {
+	border: none;
+	border-radius: 20px;
+	padding: 10px 40px;
+
+}
+
+.input>a {
+	margin-top: 30px
+}

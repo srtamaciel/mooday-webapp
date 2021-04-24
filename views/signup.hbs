@@ -1,0 +1,21 @@
+<span><a onclick="goBack()" class="btn navbar">Go back</a></span>
+
+<h1>Let's sign up</h1>
+<div class="form-container">
+  <form action="/signup"  method="POST">
+    <div class="input">
+      <label for="username">Username</label>
+      <input type="text" name="username">
+      
+      <label for="password">Password</label>
+      <input type="password" name="password">
+    
+      <a class="btn"><button type="submit">Sign up</button></a>
+    </div>
+  </form>
+</div>
+
+
+{{#if errorMessage}}
+  <p>{{this.errorMessage}}</p>
+{{/if}}
