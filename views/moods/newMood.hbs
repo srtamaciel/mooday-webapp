@@ -24,9 +24,15 @@
         <div class="mood">
           <li>{{this.mood}}</li>
           <li>{{this.date}}</li>
+
           <form class="form-delete-mood" action="/new/{{_id}}/delete" method="POST">
             <a class="delete-mood"><button type="submit">Delete mood</button></a>
           </form>
+
+           <form action="/edit-mood/{{this._id}}" method="GET">
+            <button type="submit">Edit</button>
+          </form>
+
         </div>
       {{/each}}
     </ul>

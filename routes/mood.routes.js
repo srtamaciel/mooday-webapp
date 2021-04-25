@@ -77,4 +77,33 @@ router.post('/new/:_id/delete', (req, res) => {
   })
 })
  
+//GET MODIFY MOOD
+router.get('/edit-mood/:_id', (req, res) => {
+  Mood.findById(req.params._id)
+  .then((result)=>{
+    console.log(result)
+    res.render('moods/editMood', {result: result})
+  })
+  .catch((error)=>{
+    res.render('error')
+  })
+  
+})
+
+//POST MODIFY MOOD
+router.post('/edit-mood/:_id', (req, res) => {
+
+  Mood.findByIdAndUpdate(req.params._id, req.body)
+    .then((result) => {
+      console.log(req.body)
+      const date = result.date
+      res.redirect(`/mood/new/` + date)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  })
+
+
+
 module.exports = router;

@@ -1,0 +1,39 @@
+<span><a href="/profile" class="btn navbar">Your profile</a></span>
+<span><a onclick="goBack()" class="btn navbar">Go back</a></span>
+
+<div class="container-mood">
+  <div class="form-container">
+    
+    <h1>Edit your mood</h1>
+
+    <form action="/edit-mood/{{result._id}}" method="POST">
+      <div class="input">
+    
+        <label for="mood">{{result.mood}}</label>
+        <input type="text"  name="mood">
+
+        <a class="btn"><button type="submit">Edit</button></a>
+
+      </div>
+    </form>
+  </div>
+
+  {{!-- <div class="your-day-mood">
+    <h3>Your day mood: </h3>
+    <ul>
+      {{#each moods}}
+        <div class="mood">
+          <li>{{this.mood}}</li>
+          <li>{{this.date}}</li>
+          <form class="form-delete-mood" action="/new/{{_id}}/delete" method="POST">
+            <a class="delete-mood"><button type="submit">Delete mood</button></a>
+          </form>
+        </div>
+      {{/each}}
+    </ul>
+  </div> --}}
+
+  {{#if errorMessage}}
+  <p>{{this.errorMessage}}</p> <a href=""></a>
+  {{/if}}
+</div>
