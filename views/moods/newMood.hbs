@@ -11,7 +11,7 @@
         <label for="mood"></label>
         <input type="text"  name="mood">
 
-        <a class="btn"><button type="submit">Don't find your mood? Create it!</button></a>
+        <a class="btn"><button type="submit">Create your mood!</button></a>
 
       </div>
     </form>
@@ -23,7 +23,7 @@
       {{#each moods}}
         <div class="mood">
           <li>{{this.mood}}</li>
-         {{!--  <li>{{this.date}}</li> --}}
+          <li>{{this.date}}</li>
           <form class="form-delete-mood" action="/new/{{_id}}/delete" method="POST">
             <a class="delete-mood"><button type="submit">Delete mood</button></a>
           </form>

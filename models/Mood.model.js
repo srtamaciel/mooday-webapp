@@ -6,7 +6,7 @@ const moodSchema = new Schema(
   {
     img: {type: String, enum: ['https://i.ibb.co/TMKFpHz/happy-doodle.png', 'https://i.ibb.co/MP7XLvs/sad-doodle.png', 'https://i.ibb.co/khsJP53/angry-doodle.png']},
     mood: {type: String},
-    date: {type: String, default: Date.now()}
+    date: {type: String, default: new Date().toISOString().split('T')[0]}
 
 }, { versionKey: false})
 

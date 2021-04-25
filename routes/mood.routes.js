@@ -13,25 +13,31 @@ const checkForAuth = (req, res, next) =>{
   }
  }
 
-//GET New mood on day selected
+//GET New mood
 router.get('/mood/new/:date', checkForAuth, (req, res) => {
-  Mood.findOne({date: req.params.date})
+  Mood.find({date: req.params.date})
   .then((result)=>{
+    console.log(result)
     User.findById(req.user._id)
     .populate('moods')
     .then((result)=>{
-      console.log(result)
-      res.render('moods/newMood', {moods: result.moods, date: req.params.date});
+      const todayMoods = result.moods.filter(mood=>{
+        return mood.date === req.params.date
+      })
+      res.render('moods/newMood', {moods: todayMoods, date: req.params.date});
     }) 
   })
   .catch((error)=>{
-    res.send(error)
+    res.render('error')
   })
 });
 
-//POST Create mood on day selected
+//POST Create mood
 router.post('/mood/new/:date', (req, res)=>{
-  Mood.create(req.params.date,  req.body)
+  Mood.create({
+    mood: req.body.mood,
+    date: req.params.date
+  })
   .then((result) => {
     console.log(result)
     const date = result.date
@@ -40,7 +46,7 @@ router.post('/mood/new/:date', (req, res)=>{
       res.redirect('/mood/new/' + date)
     })
   })
-  .catch((err) => {
+  .catch((error) => {
     res.render('error')
   });
 })
@@ -48,13 +54,12 @@ router.post('/mood/new/:date', (req, res)=>{
 //GET mood
  router.get('/new/:_id', (req, res) => {
   Mood.findById(req.params)
-  console.log(req.params)
   .then((result)=>{
-  console.log(result)
+    console.log(result)
   res.render('moods/newMood', result)
   })
   .catch((error)=>{
-    res.send(error)
+    res.render('error')
   })
   
 })
@@ -64,10 +69,11 @@ router.post('/new/:_id/delete', (req, res) => {
   Mood.findByIdAndDelete(req.params._id)
   .then((result)=>{
     console.log(result)
-    res.redirect('/mood/new/:date')
+    const date = result.date
+    res.redirect('/mood/new/' + date)
   })
   .catch((error)=>{
-    res.send(error)
+    res.render('error')
   })
 })
  
