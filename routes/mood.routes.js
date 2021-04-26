@@ -36,7 +36,8 @@ router.get('/mood/new/:date', checkForAuth, (req, res) => {
 router.post('/mood/new/:date', (req, res)=>{
   Mood.create({
     mood: req.body.mood,
-    date: req.params.date
+    date: req.params.date,
+    img: req.body.img 
   })
   .then((result) => {
     console.log(result)
@@ -92,8 +93,6 @@ router.post('/new/delete/:_id', (req, res) => {
     res.render('error')
   })
 })
-
-
 
 
 //GET MODIFY MOOD
