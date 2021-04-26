@@ -30,14 +30,7 @@ document.addEventListener('DOMContentLoaded',() => {
      /* alert('clicked ' + info.dateStr);  */
        console.log(info) 
       window.location.href = "/mood/new/" + dateStr;
-
-
-    },
-    
-  /*   select: (info) => {
-      alert('selected ' + info.startStr + ' to ' + info.endStr);
-      console.log(info)
-    }  */
+    }
   });
 
   calendar.render();

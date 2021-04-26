@@ -5,6 +5,7 @@ const Schema = mongoose.Schema
 const moodSchema = new Schema(
   {
     img: {type: String},
+    diary: {type: String},
     mood: {type: String},
     date: {type: String, default: new Date().toISOString().split('T')[0]}
 

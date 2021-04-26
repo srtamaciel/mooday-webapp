@@ -1,6 +1,5 @@
 * {
 	font-family: "Montserrat", sans-serif !important;
-	margin-top: 5px;
 	padding: 0px;
 }
 
@@ -82,9 +81,7 @@ h3 {
 .delete-mood > button {
 	color: black;
 }
-.form-delete-mood {
-	margin-top: 20px
-}
+
 .btn:hover {
 	background-color: white;
 	color: black;
@@ -98,6 +95,7 @@ h3 {
 #calendar {
 	margin-top: 50px;
 	width: 600px;
+	height: 644px;
 	color: white;
 }
 
@@ -122,16 +120,17 @@ button:hover {
 	opacity: 0.5;
 }
 
-.form-container {
+/* .form-container {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-}
+} */
 
 .input {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	outline: none;
 }
 
 .input>label {
@@ -143,6 +142,7 @@ button:hover {
 	border: none;
 	border-radius: 20px;
 	padding: 10px 40px;
+	outline: none;
 
 }
 
@@ -157,7 +157,7 @@ list-style-type: none;
 .container-mood {
 	display: flex;
 	justify-content: space-evenly;
-	margin-top: 15vh;
+	margin-top: 10vh;
 }
 
 .mood {
@@ -173,6 +173,7 @@ ul{
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
+	margin: 0px;
 }
 
 p {
@@ -203,4 +204,16 @@ text-align: center;
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
+}
+
+.edit-delete-button {
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.text-area {
+	border: none;
+	border-radius: 20px;
+	padding: 10px;
+	outline: none;
 }

@@ -37,7 +37,8 @@ router.post('/mood/new/:date', (req, res)=>{
   Mood.create({
     mood: req.body.mood,
     date: req.params.date,
-    img: req.body.img 
+    img: req.body.img,
+    diary: req.body.diary
   })
   .then((result) => {
     console.log(result)
