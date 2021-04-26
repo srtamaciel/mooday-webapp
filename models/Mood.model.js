@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const moodSchema = new Schema(
   {
-    img: {type: String, enum: ['https://i.ibb.co/TMKFpHz/happy-doodle.png', 'https://i.ibb.co/MP7XLvs/sad-doodle.png', 'https://i.ibb.co/khsJP53/angry-doodle.png']},
+    img: {type: String},
     mood: {type: String},
     date: {type: String, default: new Date().toISOString().split('T')[0]}
 

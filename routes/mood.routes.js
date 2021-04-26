@@ -65,7 +65,7 @@ router.post('/mood/new/:date', (req, res)=>{
 })
 
 //POST delete mood
-router.post('/new/:_id/delete', (req, res) => {
+/*  router.post('/new/delete/:_id', (req, res) => {
   Mood.findByIdAndDelete(req.params._id)
   .then((result)=>{
     console.log(result)
@@ -75,8 +75,27 @@ router.post('/new/:_id/delete', (req, res) => {
   .catch((error)=>{
     res.render('error')
   })
+}) */
+
+//POST delete mood from array User and moods collection
+router.post('/new/delete/:_id', (req, res) => {
+  User.findByIdAndUpdate(req.user._id, {$pull: {moods: req.params._id}})
+  .then((result)=>{
+    Mood.findByIdAndDelete(req.params._id)
+    .then((result) => {
+      console.log(result)
+      const date = result.date
+      res.redirect('/mood/new/' + date)
+    })
+  })
+  .catch((error)=>{
+    res.render('error')
+  })
 })
- 
+
+
+
+
 //GET MODIFY MOOD
 router.get('/edit-mood/:_id', (req, res) => {
   Mood.findById(req.params._id)

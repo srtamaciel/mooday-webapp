@@ -179,3 +179,11 @@ p {
 color: white;
 text-align: center;
 }
+
+.user-image {
+	width: 200px;
+}
+
+.doodle-mood {
+	width: 150px;
+}

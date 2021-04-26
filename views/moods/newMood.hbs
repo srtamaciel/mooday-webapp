@@ -25,7 +25,7 @@
           <li>{{this.mood}}</li>
           <li>{{this.date}}</li>
 
-          <form class="form-delete-mood" action="/new/{{_id}}/delete" method="POST">
+          <form class="form-delete-mood" action="/new/delete/{{_id}}" method="POST">
             <a class="delete-mood"><button type="submit">Delete mood</button></a>
           </form>
 
@@ -37,8 +37,13 @@
       {{/each}}
     </ul>
   </div>
-
+ 
   {{#if errorMessage}}
   <p>{{this.errorMessage}}</p> <a href=""></a>
   {{/if}}
 </div>
+ <div class="doodle-mood">
+    <form action="" method="POST">
+      <img class="doodle-mood" src="https://i.ibb.co/fqQjxgX/happy-mood-01.png" alt="happy-mood-icon">
+    </form>
+  </div>
