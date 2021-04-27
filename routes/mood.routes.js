@@ -119,10 +119,11 @@ router.post('/edit-mood/:_id', (req, res) => {
       res.redirect(`/mood/new/` + date)
     })
     .catch(err => {
-      console.log(err)
+      res.render('error')
     })
   })
 
+  
 
 
 module.exports = router;

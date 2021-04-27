@@ -1,36 +1,73 @@
-<span><a href="/profile" class="btn navbar">Your profile</a></span>
-{{!-- <span><a onclick="goBack()" class="btn navbar">Go back</a></span> --}}
+<span><a href="/profile" class="btn navbar"><i class="fas fa-user"></i></a></span>
+<h1>How are you today?</h1>
+<p><i class="far fa-calendar-alt"></i> {{date}}</p>
 
-{{!-- Create your own mood form --}}
-<div class="container-mood">
-  <div class="form-container">
-    <h1>How are you today?</h1>
-    <p>{{date}}</p>
-    <form action="/mood/new/{{date}}" method="POST">
-      <div class="input">
-
-        <label for="mood"></label>
-        <input type="text" name="mood">
-
-        <a class="btn"><button type="submit">Create your mood!</button></a>
-
-      </div>
+{{!-- Default moods with icons --}}
+<div class="default-moods">
+  <div class="each-mood">
+    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
+      <input type="text" name="mood" value="Happy" style="display: none;">
+      <input type="text" name="img" value="https://i.ibb.co/Fgy3dv7/happy-mood.png" style="display: none;">
+      
+      <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/Fgy3dv7/happy-mood.png"
+          alt="happy-mood-icon"></button>
     </form>
+    <p>Happy</p>
   </div>
-  <div class="form-container">
-    <h1>Tell me more </h1>
-    {{!-- <p>{{date}}</p> --}}
-    <form action="/mood/new/{{date}}" method="POST">
-      <div class="input">
 
-        <label for="diary"></label>
-        <textarea class="text-area" type="text" name="diary" rows="10" cols="50"></textarea>
-        {{!-- <input id="input-diary" type="text" name="diary"> --}}
-
-        <a class="btn"><button type="submit">Save</button></a>
-
-      </div>
+  <div class="each-mood">
+    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
+      <input type="text" name="mood" value="In love" style="display: none;">
+      <input type="text" name="img" value="https://i.ibb.co/SmLW8Yd/love-mood.png" style="display: none;">
+      
+      <button class="button-doodle" type="submit"><img class="doodle-mood love" src="https://i.ibb.co/SmLW8Yd/love-mood.png"
+          alt="in-love-mood-icon"  onclick="setMoodImg()"></button>
     </form>
+    <p>In love</p>
+  </div>
+
+  <div class="each-mood">
+    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
+      <input type="text" name="mood" value="Positive" style="display: none;">
+      <input type="text" name="img" value="https://i.ibb.co/NLh23Vf/confident-mood.png" style="display: none;">
+      
+      <button class="button-doodle" type="submit"><img class="doodle-mood"
+          src="https://i.ibb.co/NLh23Vf/confident-mood.png" alt="Positive-mood-icon"></button>
+    </form>
+    <p>Positive</p>
+  </div>
+
+  <div class="each-mood">
+    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
+      <input type="text" name="mood" value="Angry" style="display: none;">
+      <input type="text" name="img" value="https://i.ibb.co/qyvVsPN/angry-mood.png" style="display: none;">
+      
+      <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/qyvVsPN/angry-mood.png"
+          alt="angry-mood-icon"></button>
+    </form>
+    <p>Angry</p>
+  </div>
+
+  <div class="each-mood">
+    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
+      <input type="text" name="mood" value="Sad" style="display: none;">
+      <input type="text" name="img" value="https://i.ibb.co/v1cdS4s/sad-mood.png" style="display: none;">
+      
+      <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/v1cdS4s/sad-mood.png"
+          alt="sad-mood-icon"></button>
+    </form>
+    <p>Sad</p>
+  </div>
+
+  <div class="each-mood">
+    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
+      <input type="text" name="mood" value="Chaotic" style="display: none;">
+      <input type="text" name="img" value="https://i.ibb.co/hFLGg8r/confused-mood.png" style="display: none;">
+      
+      <button class="button-doodle" type="submit"><img class="doodle-mood"
+          src="https://i.ibb.co/hFLGg8r/confused-mood.png" alt="chaotic-mood-icon"></button>
+    </form>
+    <p>Chaotic</p>
   </div>
 </div>
 
@@ -64,70 +101,42 @@
   </ul>
 </div>
 
+
+{{!-- Create your own mood form --}}
+<div class="container-mood">
+  <div class="form-container create-mood">
+    <form action="/mood/new/{{date}}" method="POST">
+      <div class="input">
+
+        <label for="mood">Don't find a mood for your day? Create it!</label>
+        <input type="text" name="mood">
+
+        <a class="btn"><button type="submit">Do it!</button></a>
+
+      </div>
+    </form>
+  </div>
+
+  <div class="form-container">
+    <p class="tell-more">Tell me more </p>
+    {{!-- <p>{{date}}</p> --}}
+
+    <form action="/mood/new/{{date}}" method="POST">
+      <div class="input">
+
+        <label for="diary"></label>
+        <textarea class="text-area" type="text" name="diary" rows="10" cols="50"></textarea>
+
+        <a class="btn"><button type="submit">Save</button></a>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+
 {{#if errorMessage}}
-<p>{{this.errorMessage}}</p> <a href=""></a>
+<p>{{this.errorMessage}}</p> 
 {{/if}}
 </div>
 
-{{!-- Default moods with icons --}}
-<div class="default-moods">
-  <div class="each-mood">
-    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
-      <input type="text" name="mood" value="Happy" style="display: none;">
-      <input type="text" name="img" value="https://i.ibb.co/Fgy3dv7/happy-mood.png" style="display: none;">
-      <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/Fgy3dv7/happy-mood.png"
-          alt="happy-mood-icon"></button>
-    </form>
-    <p>Happy</p>
-  </div>
-
-  <div class="each-mood">
-    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
-      <input type="text" name="mood" value="In love" style="display: none;">
-      <input type="text" name="img" value="https://i.ibb.co/SmLW8Yd/love-mood.png" style="display: none;">
-      <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/SmLW8Yd/love-mood.png"
-          alt="happy-mood-icon"></button>
-    </form>
-    <p>In love</p>
-  </div>
-
-  <div class="each-mood">
-    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
-      <input type="text" name="mood" value="Confident" style="display: none;">
-      <input type="text" name="img" value="https://i.ibb.co/NLh23Vf/confident-mood.png" style="display: none;">
-      <button class="button-doodle" type="submit"><img class="doodle-mood"
-          src="https://i.ibb.co/NLh23Vf/confident-mood.png" alt="happy-mood-icon"></button>
-    </form>
-    <p>Confident</p>
-  </div>
-
-  <div class="each-mood">
-    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
-      <input type="text" name="mood" value="Angry" style="display: none;">
-      <input type="text" name="img" value="https://i.ibb.co/qyvVsPN/angry-mood.png" style="display: none;">
-      <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/qyvVsPN/angry-mood.png"
-          alt="angry-mood-icon"></button>
-    </form>
-    <p>Angry</p>
-  </div>
-
-  <div class="each-mood">
-    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
-      <input type="text" name="mood" value="Sad" style="display: none;">
-      <input type="text" name="img" value="https://i.ibb.co/v1cdS4s/sad-mood.png" style="display: none;">
-      <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/v1cdS4s/sad-mood.png"
-          alt="angry-mood-icon"></button>
-    </form>
-    <p>Sad</p>
-  </div>
-
-  <div class="each-mood">
-    <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
-      <input type="text" name="mood" value="Confused" style="display: none;">
-      <input type="text" name="img" value="https://i.ibb.co/hFLGg8r/confused-mood.png" style="display: none;">
-      <button class="button-doodle" type="submit"><img class="doodle-mood"
-          src="https://i.ibb.co/hFLGg8r/confused-mood.png" alt="angry-mood-icon"></button>
-    </form>
-    <p>Confused</p>
-  </div>
-</div>

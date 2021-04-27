@@ -42,13 +42,20 @@ h1,
 h2,
 h3 {
 	text-align: center;
-	margin-bottom: .5rem;
+	/* margin-bottom: .5rem; */
 	font-weight: 500;
 	line-height: 1.2;
 	font-size: 2.5rem;
 	color: #f8f9fa;
 }
+h2 {
+	margin: 0px;
+}
 
+.tell-more {
+	margin-top: 0px;
+	font-weight: 500;
+}
 
 .subcontainer {
 	display: flex;
@@ -67,7 +74,7 @@ h3 {
 
 .btn {
 	color: white;
-	padding: 10px 30px;
+	padding: 10px 20px;
 	border: 1px solid white;
 	margin: 5px;
 
@@ -75,8 +82,7 @@ h3 {
 
 .delete-mood{
 	padding: 5px 10px;
-	background-color: white;
-	opacity: 0.5;
+	background-color: rgb(255,255,255, .4);
 }
 .delete-mood > button {
 	color: black;
@@ -200,7 +206,7 @@ text-align: center;
 } 
 
 .default-moods {
-	margin-top: 100px;
+
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
@@ -216,4 +222,88 @@ text-align: center;
 	border-radius: 20px;
 	padding: 10px;
 	outline: none;
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+
+.fc-dayGridMonth-button .fc-button .fc-button-primary .fc-button-active {
+	display: none;
+}
+.your-day-mood {
+	border-radius: 20px;
+	background-color: rgb(255,255,255, .4);
+	margin-top: 40px;
+}
+.fc-event-img{
+	display: flex;
+	justify-content: center;
+	
+}
+.fc-event-img img{
+	width: 50px;
+}
+
+
+@media all and (max-width: 480px) {
+  .h1 {
+    font-size: 14px;
+  }
+
+	#calendar {
+		margin-top: 50px;
+		width: 350px;
+		height: 430px;
+	}
+	.header > img {
+		width: 130px;
+	}
+	.header > h2 {
+		font-size: 25px;
+	}
+
+	.fc-dayGridMonth-button {
+		display: none;
+	}
+	.fc-toolbar-title {
+		font-size: 14px;
+	}
+	.doodle-mood {
+		width: 50px;
+	}
+	.default-moods{
+		margin-top: 50px;
+		display: flex;
+	}
+	.each-mood {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-evenly;
+	}
+	.container-mood {
+		display: flex;
+    flex-direction: column;
+	}
+	.text-area {
+		padding: 0px;
+	}
+
+	.tell-more{
+		margin: 0px;
+		font-weight: 500;
+	}
+	h1 {
+		font-size: 2rem;
+		margin-top: 50px;
+	}
+	p {
+		font-size: 14px;
+	}
+	.create-mood {
+		margin-bottom: 40px;
+	}
 }

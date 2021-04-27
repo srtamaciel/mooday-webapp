@@ -1,8 +1,15 @@
 <span><a href="/logout" class="btn"></i>Log out</a></span>
 {{!-- <span><a href="/mood/new" class="btn"></i>Your mood today</a></span> --}}
-
-  <h2>Welcome, {{username}}<img class="user-image" src="{{img}}" alt="{{username}}"></h2>
+<div class="header">
+<img class="user-image" src="{{user.img}}" alt="{{user.username}}">
+<h2>Welcome, {{user.username}}</h2>
+</div>
   
-  <div class="calendar-container">
-    <div id='calendar'></div>
-  </div>
+<div class="calendar-container">
+  <div id='calendar'></div>
+</div>
+
+<script>
+  const moods = {{{moods}}}
+ 
+</script>

@@ -25,9 +25,11 @@ router.get('/profile', checkForAuth, (req, res, next) => {
   User.findById(req.user._id)
   .populate('moods')
   .then((result) => {
-    res.render('profile', result);
+    console.log(result)
+    res.render('profile', {user: result, moods: JSON.stringify(result.moods)});
   })
   .catch((err) => {
+    console.log(err)
     res.render('error')
   })
 });
