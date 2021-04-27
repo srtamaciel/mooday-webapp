@@ -48,8 +48,40 @@ h3 {
 	font-size: 2.5rem;
 	color: #f8f9fa;
 }
+
 h2 {
 	margin: 0px;
+}
+
+.span-letter{
+	color: white;
+	margin: 0 15px;
+	line-height: .7;
+	animation: span 3s ease-in infinite alternate;
+}
+.main{
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	font-family: 'Quicksand', sans-serif;
+	margin: 30px; 
+	font-size: 3rem;
+}
+.letter{
+	display: inline-flex;
+	height: 24px;
+	border: 5px solid white;
+	border-radius: 19px;
+	animation: letter 3s ease-in-out infinite alternate;
+}
+
+@keyframes span {
+	0%,30%{ margin: 0 15px; }
+	70%,100%{ margin: 0 5px; }
+}
+@keyframes letter {
+	0%,30%{ width: 25px; }
+	70%,100%{ width: 20vw; }
 }
 
 .tell-more {
@@ -80,11 +112,12 @@ h2 {
 
 }
 
-.delete-mood{
+.delete-mood {
 	padding: 5px 10px;
-	background-color: rgb(255,255,255, .4);
+	background-color: rgb(255, 255, 255, .4);
 }
-.delete-mood > button {
+
+.delete-mood>button {
 	color: black;
 }
 
@@ -126,12 +159,6 @@ button:hover {
 	opacity: 0.5;
 }
 
-/* .form-container {
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-} */
-
 .input {
 	display: flex;
 	flex-direction: column;
@@ -157,9 +184,10 @@ button:hover {
 }
 
 ul li {
-color: white;
-list-style-type: none;
+	color: white;
+	list-style-type: none;
 }
+
 .container-mood {
 	display: flex;
 	justify-content: space-evenly;
@@ -171,11 +199,10 @@ list-style-type: none;
 	flex-direction: column;
 	align-items: center;
 	margin: 15px;
-/* 	border: 1px solid white; */
 	padding: 5px 0px;
 }
 
-ul{
+ul {
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
@@ -183,8 +210,8 @@ ul{
 }
 
 p {
-color: white;
-text-align: center;
+	color: white;
+	text-align: center;
 }
 
 .user-image {
@@ -192,24 +219,26 @@ text-align: center;
 }
 
 .doodle-mood {
-	width: 100px;
+	width: 70px;
 }
+
 .form-doodle-mood {
 	display: flex;
 	justify-content: center;
 }
 
 .button-doodle:hover {
-	opacity:1.0;
-	box-shadow:none;
+	opacity: 1.0;
+	box-shadow: none;
 	background-color: transparent;
-} 
+}
 
 .default-moods {
 
 	display: flex;
 	justify-content: space-evenly;
 	flex-wrap: wrap;
+	margin-top: 55px;
 }
 
 .edit-delete-button {
@@ -234,84 +263,127 @@ text-align: center;
 .fc-dayGridMonth-button .fc-button .fc-button-primary .fc-button-active {
 	display: none;
 }
+
 .your-day-mood {
 	border-radius: 20px;
-	background-color: rgb(255,255,255, .4);
+	background-color: rgb(255, 255, 255, .4);
 	margin-top: 40px;
 }
+
 .fc-event-img {
 	display: flex;
 	justify-content: center;
 }
+
 .fc-event-title {
 	display: flex;
 	justify-content: center;
 
 }
-.fc-event-img img{
+
+.fc-event-img img {
 	width: 50px;
-	
+
 }
+
 .fc-daygrid-day-events {
 	display: flex;
 	justify-content: center;
 }
 
+.fc-event-main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
 @media all and (max-width: 480px) {
-  .h1 {
-    font-size: 14px;
-  }
+	.h1 {
+		font-size: 14px;
+	}
+	.main {
+		font-size: 2rem;
+	}
+
+	.letter {
+    height: 15px;
+    border: 4px solid white;
+	}
+	@keyframes letter {
+		0%,30%{ width: 15px; }
+		70%,100%{ width: 20vw; }
+	}
+	
 
 	#calendar {
 		margin-top: 50px;
 		width: 350px;
 		height: 430px;
 	}
-	.header > img {
+
+	.header>img {
 		width: 130px;
 	}
-	.header > h2 {
+
+	.header>h2 {
 		font-size: 25px;
 	}
 
 	.fc-dayGridMonth-button {
 		display: none;
 	}
+
 	.fc-toolbar-title {
 		font-size: 14px;
 	}
+
 	.doodle-mood {
 		width: 50px;
 	}
-	.default-moods{
+
+	.default-moods {
 		margin-top: 50px;
 		display: flex;
 	}
+
 	.each-mood {
 		display: flex;
 		flex-direction: column;
 		justify-content: space-evenly;
 	}
+
 	.container-mood {
 		display: flex;
-    flex-direction: column;
+		flex-direction: column;
 	}
+
 	.text-area {
 		padding: 0px;
 	}
 
-	.tell-more{
+	.tell-more {
 		margin: 0px;
 		font-weight: 500;
 	}
+
 	h1 {
 		font-size: 2rem;
 		margin-top: 50px;
 	}
+
 	p {
 		font-size: 14px;
 	}
+
 	.create-mood {
 		margin-bottom: 40px;
 	}
+
+	.fc-event-img img {
+		width: 30px;
+
+	}
+
+	
+
 }

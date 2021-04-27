@@ -4,6 +4,7 @@ const router  = express.Router();
 const Mood = require('../models/Mood.model');
 const User = require('../models/User.model');
 
+
 //Middleware
 const checkForAuth = (req, res, next) =>{
   if(req.isAuthenticated()){
@@ -32,7 +33,7 @@ router.get('/mood/new/:date', checkForAuth, (req, res) => {
   })
 });
 
-//POST Create mood
+//POST CREATE MOOD
 router.post('/mood/new/:date', (req, res)=>{
   Mood.create({
     mood: req.body.mood,
@@ -45,6 +46,7 @@ router.post('/mood/new/:date', (req, res)=>{
     const date = result.date
     User.findByIdAndUpdate(req.user._id, {$push: {moods: result._id}})
     .then((result) => {
+        console.log(result)
       res.redirect('/mood/new/' + date)
     })
   })
@@ -53,7 +55,7 @@ router.post('/mood/new/:date', (req, res)=>{
   });
 })
 
-//GET mood
+//GET MOOD
  router.get('/new/:_id', (req, res) => {
   Mood.findById(req.params)
   .then((result)=>{
@@ -67,7 +69,7 @@ router.post('/mood/new/:date', (req, res)=>{
 })
 
 
-//POST delete mood from array User and moods collection
+//POST DELETE
 router.post('/new/delete/:_id', (req, res) => {
   User.findByIdAndUpdate(req.user._id, {$pull: {moods: req.params._id}})
   .then((result)=>{
@@ -111,6 +113,38 @@ router.post('/edit-mood/:_id', (req, res) => {
     })
   })
 
+
+
+
+//GET MODIFY DIARY
+  router.get('/edit-diary/:_id', (req, res) => {
+    Mood.findById(req.params._id)
+    .then((result)=>{
+      console.log(result)
+      res.render('moods/editDiary', {result: result})
+    })
+    .catch((error)=>{
+      res.render('error')
+    })
+    
+  })
+  
+  //POST MODIFY DIARY
+  router.post('/edit-diary/:_id', (req, res) => {
+  
+    Mood.findByIdAndUpdate(req.params._id, req.body)
+      .then((result) => {
+        console.log(req.body)
+        const date = result.date
+        res.redirect(`/mood/new/` + date)
+      })
+      .catch(err => {
+        res.render('error')
+      })
+    })
+  
+
+  
   
 
 

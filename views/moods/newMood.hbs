@@ -77,24 +77,28 @@
   <ul>
     {{#each moods}}
     <div class="mood">
+      
       <img class="doodle-mood" src="{{this.img}}" alt="{{this.img}}">
       <li>{{this.mood}}</li>
-      {{!-- <p>{{this.diary}}</p> --}}
+
       <div class="text-diary">
          <p>{{this.diary}}</p>
       </div>
-      {{!-- <li>{{this.date}}</li> --}}
+
+      
       <div class="edit-delete-button">
         <div class="edit">
           <form action="/edit-mood/{{this._id}}" method="GET">
             <a class="delete-mood"><button type="submit"><i class="far fa-edit"></i></button></a>
           </form>
         </div>
+        
         <div class="delete">
           <form class="form-delete-mood" action="/new/delete/{{_id}}" method="POST">
             <a class="delete-mood"><button type="submit"><i class="far fa-trash-alt"></i></button></a>
           </form>
         </div>
+      
       </div>
     </div>
     {{/each}}
@@ -108,7 +112,7 @@
     <form action="/mood/new/{{date}}" method="POST">
       <div class="input">
 
-        <label for="mood">Don't find a mood for your day? Create it!</label>
+        <label for="mood">Didn't find a mood for your day?</label>
         <input type="text" name="mood">
 
         <a class="btn"><button type="submit">Do it!</button></a>

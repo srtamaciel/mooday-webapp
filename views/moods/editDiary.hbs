@@ -6,27 +6,21 @@
 <div class="container-mood">
   <div class="form-container">
     
-    <h1>Edit</h1>
+    <h1>Edit your diary</h1>
 
-    <form action="/edit-mood/{{result._id}}" method="POST">
+    <form action="/edit-diary/{{result._id}}" method="POST">
       <div class="input">
-    
-        <label for="mood">{{result.mood}}</label>
-        <input type="text" class="mood-input" name="mood">
 
         <label for="diary">{{result.diary}}</label>
         <textarea class="text-area" type="text" name="diary" rows="10" cols="50"></textarea>
 
-        <a class="btn"><button type="submit">Edit</button></a>
+        <a class="btn"><button type="submit">Edit your diary</button></a>
 
       </div>
     </form>
   </div>
 
-
-
   {{#if errorMessage}}
   <p>{{this.errorMessage}}</p>
   {{/if}}
 </div>
-
