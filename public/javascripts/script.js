@@ -18,10 +18,23 @@ document.addEventListener('DOMContentLoaded',() => {
   let calendarEl = document.getElementById('calendar');
   
   let newEvents = moods.map((mood) => {
-    return {
-      title: mood.mood,
-      start: mood.date,
-      image_url: mood.img
+    if(mood.img === ''){
+      return {
+        title: mood.mood,
+        start: mood.date
+      }
+    } else if(mood.diary){
+      return {
+        title: '',
+        start: mood.date,
+        image_url: ''
+      }
+    }else {
+      return {
+        title: mood.mood,
+        start: mood.date,
+        image_url: mood.img
+      }
     }
   })
 

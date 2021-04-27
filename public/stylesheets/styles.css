@@ -239,15 +239,23 @@ text-align: center;
 	background-color: rgb(255,255,255, .4);
 	margin-top: 40px;
 }
-.fc-event-img{
+.fc-event-img {
 	display: flex;
 	justify-content: center;
-	
+}
+.fc-event-title {
+	display: flex;
+	justify-content: center;
+
 }
 .fc-event-img img{
 	width: 50px;
+	
 }
-
+.fc-daygrid-day-events {
+	display: flex;
+	justify-content: center;
+}
 
 @media all and (max-width: 480px) {
   .h1 {
