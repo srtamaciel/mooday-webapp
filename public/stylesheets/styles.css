@@ -86,7 +86,7 @@ h2 {
 
 .tell-more {
 	margin-top: 0px;
-	font-weight: 500;
+	margin-bottom: 30px;
 }
 
 .subcontainer {
@@ -126,7 +126,15 @@ h2 {
 	color: black;
 	opacity: 0.5;
 }
+.anchor-buttons {
+	color: white;
+	border: 1px solid white;
+	margin: 5px;
+}
 
+.buttons {
+	padding: 10px 20px;
+}
 .text-light {
 	color: white;
 }
@@ -143,20 +151,28 @@ h2 {
 	justify-content: center;
 }
 
-span {
-	float: right;
+.fc .fc-col-header-cell-cushion {
+	font-weight: 500;
 }
 
-button {
-	background: transparent;
-	border: none;
-	color: white
+.fc-daygrid {
+	background-color: rgb(255,255,255, 0.2);
+}
+
+span {
+	float: right;
 }
 
 button:hover {
 	color: black;
 	background-color: white;
 	opacity: 0.5;
+}
+
+button {
+	background: transparent;
+	border: none;
+	color: white
 }
 
 .input {
@@ -317,9 +333,13 @@ p {
 
 	#calendar {
 		margin-top: 50px;
-		width: 350px;
-		height: 430px;
+		width: 334px;
+    height: 393px;
 	}
+
+	.fc .fc-col-header-cell-cushion {
+    font-weight: 400;
+}
 
 	.header>img {
 		width: 130px;
@@ -362,9 +382,11 @@ p {
 	}
 
 	.tell-more {
-		margin: 0px;
-		font-weight: 500;
-	}
+		margin-top: 0px;
+		width: 300px;
+		margin-bottom: 30px;
+}
+	
 
 	h1 {
 		font-size: 2rem;
@@ -381,9 +403,6 @@ p {
 
 	.fc-event-img img {
 		width: 30px;
-
 	}
-
-	
 
 }

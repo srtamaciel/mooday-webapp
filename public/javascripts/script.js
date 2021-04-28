@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded',() => {
       }
     } else if(mood.diary){
       return {
-        title: '',
+        title: mood.mood,
         start: mood.date,
-        image_url: ''
+        image_url: mood.img
       }
     }else {
       return {

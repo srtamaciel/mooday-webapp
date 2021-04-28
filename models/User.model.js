@@ -9,6 +9,7 @@ const userSchema = new Schema(
     img: {type: String,  default: 'https://i.ibb.co/VLZN97c/profile-gif-2.gif'},
     moods: [{type: Schema.Types.ObjectId, ref:'Mood'}]
   
+  
 }, { versionKey: false})
 
 

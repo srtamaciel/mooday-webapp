@@ -73,7 +73,7 @@
 
 {{!-- Each mood with his name, img (if it's a clicked one) and button to edit and delete --}}
 <div class="your-day-mood">
-  {{!-- <h3>Your day mood: </h3> --}}
+
   <ul>
     {{#each moods}}
     <div class="mood">
@@ -89,7 +89,13 @@
       <div class="edit-delete-button">
         <div class="edit">
           <form action="/edit-mood/{{this._id}}" method="GET">
-            <a class="delete-mood"><button type="submit"><i class="far fa-edit"></i></button></a>
+            <a class="delete-mood"><button type="submit"><i class="far fa-edit"></i>Mood</button></a>
+          </form>
+        </div>
+
+         <div class="edit">
+          <form action="/edit-diary/{{this._id}}" method="GET">
+            <a class="delete-mood"><button type="submit"><i class="far fa-edit"></i>Diary</button></a>
           </form>
         </div>
         
@@ -105,37 +111,40 @@
   </ul>
 </div>
 
-
-{{!-- Create your own mood form --}}
+{{#unless moods}}
 <div class="container-mood">
   <div class="form-container create-mood">
     <form action="/mood/new/{{date}}" method="POST">
       <div class="input">
 
-        <label for="mood">Didn't find a mood for your day?</label>
+        <label for="mood"></label>
+        <p class="tell-more">If your mood today doesn't match with anyone on the top, create you own</p>
         <input type="text" name="mood">
 
-        <a class="btn"><button type="submit">Do it!</button></a>
+        <a class="btn"><button type="submit">Create</button></a>
 
       </div>
     </form>
   </div>
 
-  <div class="form-container">
+  {{!-- <div class="form-container">
     <p class="tell-more">Tell me more </p>
-    {{!-- <p>{{date}}</p> --}}
 
     <form action="/mood/new/{{date}}" method="POST">
       <div class="input">
 
         <label for="diary"></label>
         <textarea class="text-area" type="text" name="diary" rows="10" cols="50"></textarea>
-
         <a class="btn"><button type="submit">Save</button></a>
 
       </div>
     </form>
-  </div>
+  </div> --}}
+{{/unless}}
+{{!-- Create your own mood form --}}
+
+
+        
 </div>
 
 
@@ -143,4 +152,3 @@
 <p>{{this.errorMessage}}</p> 
 {{/if}}
 </div>
-

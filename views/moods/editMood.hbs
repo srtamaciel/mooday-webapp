@@ -1,8 +1,26 @@
 <div class="edit-page-buttons">
-<span><a href="/profile" class="btn navbar"><i class="fas fa-user"></i></a></span>
-<span><a onclick="goBack()" class="btn navbar"><i class="fas fa-arrow-left"></i></a></span>
+<span><a href="/mood/new/{{result.date}}" class="btn navbar"><i class="fas fa-arrow-left"></i></a></span>
+
 </div>
 
+<div class="container-mood">
+  <div class="form-container">
+    
+    <p>Edit your mood name</p>
+
+    <form action="/edit-mood/{{result._id}}" method="POST">
+      <div class="input">
+    
+        <label for="mood">{{result.mood}}</label>
+        <input type="text" class="mood-input" name="mood">
+
+        <a class="anchor-buttons"><button class="buttons" type="submit">Edit</button></a>
+
+      </div>
+    </form>
+  </div>
+
+{{!-- 
 <div class="container-mood">
   <div class="form-container">
     
@@ -10,9 +28,6 @@
 
     <form action="/edit-mood/{{result._id}}" method="POST">
       <div class="input">
-    
-        <label for="mood">{{result.mood}}</label>
-        <input type="text" class="mood-input" name="mood">
 
         <label for="diary">{{result.diary}}</label>
         <textarea class="text-area" type="text" name="diary" rows="10" cols="50"></textarea>
@@ -22,7 +37,7 @@
       </div>
     </form>
   </div>
-
+ --}}
 
 
   {{#if errorMessage}}
