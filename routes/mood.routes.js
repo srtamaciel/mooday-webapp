@@ -3,7 +3,7 @@ const router  = express.Router();
 
 const Mood = require('../models/Mood.model');
 const User = require('../models/User.model');
-
+let thisDate;
 
 //Middleware
 const checkForAuth = (req, res, next) =>{
@@ -35,7 +35,7 @@ router.get('/mood/new/:date', checkForAuth, (req, res) => {
 
 //POST CREATE MOOD
 router.post('/mood/new/:date', (req, res)=>{
-  
+  thisDate = req.params.date
   User.findById(req.user._id)
   .populate('moods')
   .then((result)=>{
@@ -60,16 +60,15 @@ router.post('/mood/new/:date', (req, res)=>{
             })
           })
       } else {
-        res.send(`You can't create another mood this day`)
+        const todayMoods = result.moods.filter(mood=>{
+          return mood.date === req.params.date
+        })
+        res.render('moods/newMood', {moods: todayMoods, date: req.params.date, errorMessage: `Sorry! You can't create two moods on the same day`})
       }
   })
   .catch((error)=>{
     res.render('error')
   })
-  
-
-  
-   
 })
 
 //GET MOOD

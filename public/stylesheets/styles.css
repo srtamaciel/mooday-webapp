@@ -223,7 +223,7 @@ ul li {
 
 .container-mood {
 	display: flex;
-	justify-content: space-evenly;
+  flex-direction: column;
 	margin-top: 10vh;
 }
 
@@ -300,7 +300,9 @@ p {
 .your-day-mood {
 	border-radius: 20px;
 	background-color: rgb(255, 255, 255, .4);
-	margin-top: 40px;
+	max-width: 700px;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 .fc-event-img {
@@ -330,6 +332,20 @@ p {
 	align-items: center;
 }
 
+.error-message {
+	display: flex;
+	justify-content: center;
+	background-color: rgb(255, 255, 255, .4);
+	max-width: 500px;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+
+
+
+
+
+/* MEDIA QUERY */
 @media all and (max-width: 480px) {
 	.h1 {
 		font-size: 14px;
@@ -376,6 +392,8 @@ p {
 
 	.doodle-mood {
 		width: 50px;
+		-webkit-box-shadow: 1px 2px 11px 4px rgba(0,0,0,0.68); 
+	box-shadow: 1px 2px 11px 4px rgba(0,0,0,0.68);
 	}
 
 	.default-moods {
@@ -421,6 +439,13 @@ p {
 
 	.fc-event-img img {
 		width: 30px;
+	}
+	.error-message p {
+		width: 200px;
+	}
+
+	.your-day-mood {
+		margin-top: 40px;
 	}
 
 }

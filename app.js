@@ -24,8 +24,11 @@ const User = require('./models/User.model')
 // MONGOOSE--------------------
 require('./config/db.config')
 
-  //EXPRESS--------------------
+//EXPRESS--------------------
 const app = express();
+
+
+app.use('/favicon.ico', express.static('images/favicon.ico'));
 
 // Middleware Setup ------------
 app.use(logger('dev'));

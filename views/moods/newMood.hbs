@@ -1,3 +1,5 @@
+
+<link rel="icon" type="image/png" href="../images/favicon.ico" />
 <span><a href="/profile" class="btn navbar"><i class="fas fa-user"></i></a></span>
 <h1>How are you today?</h1>
 <p><i class="far fa-calendar-alt"></i> {{date}}</p>
@@ -148,7 +150,10 @@
 </div>
 
 
-{{#if errorMessage}}
-<p>{{this.errorMessage}}</p> 
-{{/if}}
 </div>
+
+{{#if errorMessage}}
+<div class="error-message">
+<p>{{this.errorMessage}}</p> 
+</div>
+{{/if}}
