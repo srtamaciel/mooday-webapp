@@ -53,6 +53,23 @@ h2 {
 	margin: 0px;
 }
 
+.small {
+	font-size: 15px;
+	font-weight: 15;
+}
+.icon {
+	color: white;
+	width: 25px;
+}
+
+.github {
+	margin-right: 10px;
+}
+.icons-container {
+	display:flex;
+	justify-content: center;
+}
+
 .span-letter{
 	color: white;
 	margin: 0 15px;
