@@ -35,24 +35,41 @@ router.get('/mood/new/:date', checkForAuth, (req, res) => {
 
 //POST CREATE MOOD
 router.post('/mood/new/:date', (req, res)=>{
-  Mood.create({
-    mood: req.body.mood,
-    date: req.params.date,
-    img: req.body.img,
-    diary: req.body.diary
-  })
-  .then((result) => {
-    console.log(result)
-    const date = result.date
-    User.findByIdAndUpdate(req.user._id, {$push: {moods: result._id}})
-    .then((result) => {
-        console.log(result)
-      res.redirect('/mood/new/' + date)
+  
+  User.findById(req.user._id)
+  .populate('moods')
+  .then((result)=>{
+    let counter = 0
+    result.moods.forEach((mood)=> {
+      if(mood.date === req.params.date){ counter++}
     })
+        if(counter === 0){
+          Mood.create({
+            mood: req.body.mood,
+            date: req.params.date,
+            img: req.body.img,
+            diary: req.body.diary
+          })
+          .then((result) => {
+            console.log(result)
+            const date = result.date
+            User.findByIdAndUpdate(req.user._id, {$push: {moods: result._id}})
+            .then((result) => {
+                console.log(result)
+              res.redirect('/mood/new/' + date)
+            })
+          })
+      } else {
+        res.send(`You can't create another mood this day`)
+      }
   })
-  .catch((error) => {
+  .catch((error)=>{
     res.render('error')
-  });
+  })
+  
+
+  
+   
 })
 
 //GET MOOD

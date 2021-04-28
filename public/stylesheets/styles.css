@@ -378,7 +378,8 @@ p {
 	}
 
 	.text-area {
-		padding: 0px;
+		padding: 20px;
+    width: 280px;
 	}
 
 	.tell-more {
