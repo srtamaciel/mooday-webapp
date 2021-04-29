@@ -17,6 +17,12 @@
   </form>
 </div>
 
+{{#if signUpMsg}}
+<div class="error-message">
+<p>{{this.signUpMsg}}</p> 
+</div>
+{{/if}}
+
 
 {{#if errorMessage}}
 <div class="error-message">

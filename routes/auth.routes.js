@@ -7,12 +7,12 @@ const User = require('../models/User.model')
 
 
 
-/* GET signup page */
+/* GET SIGN UP */
 router.get('/signup', (req, res, next) => {
   res.render('signup');
 });
 
-/* POST sign up */
+/* POST SIGN UP */
 router.post('/signup', (req, res)=> {
   const {username, password} = req.body
 
@@ -27,7 +27,7 @@ User.findOne({username})
     const hashedPassword = bcrypt.hashSync(password, 10)
     User.create({username, password: hashedPassword})
     .then(() => {
-      res.redirect('/login')
+      res.render('login', {signUpMsg: `Congrats! You're account has been created!`})
     })
   }
 })
