@@ -18,7 +18,9 @@ The goal it's to know the average of your feelings monthly at a glance 👀
 ## Link 🔗
 👉  [Web URL](https://mooday-webapp.herokuapp.com/)
 
-![screenshot](https://i.ibb.co/xfds8fk/Captura-de-pantalla-2021-04-29-a-las-13-33-49.png)
+Responsive 📱💻
+
+![screenshot](https://i.ibb.co/2hxYvMr/Captura-de-pantalla-2021-04-30-a-las-0-16-05.png)
 
 
 ## Built with 🛠
