@@ -28,7 +28,7 @@ require('./config/db.config')
 const app = express();
 
 
-app.use('/favicon.ico', express.static('images/favicon.ico'));
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 // Middleware Setup ------------
 app.use(logger('dev'));

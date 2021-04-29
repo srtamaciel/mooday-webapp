@@ -343,6 +343,16 @@ p {
   margin-top: 30px;
 }
 
+.zoom {
+  transition: transform .2s;
+  width: 200px;
+  height: 200px;
+}
+
+.zoom:hover {
+  transform: scale(1.5);
+}
+
 
 
 
@@ -448,5 +458,15 @@ p {
 	.your-day-mood {
 		margin-top: 40px;
 	}
+
+	.zoom {
+		transition: transform .2s;
+		height: auto;
+    width: auto;
+	}
+	.zoom:hover {
+		transform: scale(1.2);
+	}
+	
 
 }
