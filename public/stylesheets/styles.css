@@ -221,11 +221,6 @@ ul li {
 	list-style-type: none;
 }
 
-.container-mood {
-	display: flex;
-  flex-direction: column;
-	margin-top: 10vh;
-}
 
 .mood {
 	display: flex;
@@ -344,7 +339,7 @@ p {
 
 .zoom {
   transition: transform .2s;
-  width: 200px;
+  /* width: 200px; */
   height: 200px;
 }
 

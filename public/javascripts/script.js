@@ -9,8 +9,6 @@ const goBack = () =>{
   window.history.back();
 }
 
-//Day config
-
 
 //CALENDAR CONFIG
 
@@ -23,13 +21,7 @@ document.addEventListener('DOMContentLoaded',() => {
         title: mood.mood,
         start: mood.date
       }
-    } else if(mood.diary){
-      return {
-        title: mood.mood,
-        start: mood.date,
-        image_url: mood.img
-      }
-    }else {
+    } else {
       return {
         title: mood.mood,
         start: mood.date,
@@ -83,7 +75,7 @@ document.addEventListener('DOMContentLoaded',() => {
 
 
 
-//SET THE IMG MOOD TO THE DAY
+//COMPROBATIONS TO BRING THE BACK INFO TO THE FRONT
 try {
   console.log(moods)
 } catch {

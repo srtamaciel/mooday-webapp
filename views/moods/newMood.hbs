@@ -1,5 +1,3 @@
-
-<link rel="icon" type="image/png" href="../images/favicon.ico" />
 <span><a href="/profile" class="btn navbar"><i class="fas fa-user"></i></a></span>
 <h1>How are you today?</h1>
 <p><i class="far fa-calendar-alt"></i> {{date}}</p>
@@ -10,7 +8,7 @@
     <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
       <input type="text" name="mood" value="Happy" style="display: none;">
       <input type="text" name="img" value="https://i.ibb.co/Fgy3dv7/happy-mood.png" style="display: none;">
-      
+
       <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/Fgy3dv7/happy-mood.png"
           alt="happy-mood-icon"></button>
     </form>
@@ -21,9 +19,9 @@
     <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
       <input type="text" name="mood" value="In love" style="display: none;">
       <input type="text" name="img" value="https://i.ibb.co/SmLW8Yd/love-mood.png" style="display: none;">
-      
-      <button class="button-doodle" type="submit"><img class="doodle-mood love" src="https://i.ibb.co/SmLW8Yd/love-mood.png"
-          alt="in-love-mood-icon"  onclick="setMoodImg()"></button>
+
+      <button class="button-doodle" type="submit"><img class="doodle-mood love"
+          src="https://i.ibb.co/SmLW8Yd/love-mood.png" alt="in-love-mood-icon" onclick="setMoodImg()"></button>
     </form>
     <p>In love</p>
   </div>
@@ -32,7 +30,7 @@
     <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
       <input type="text" name="mood" value="Positive" style="display: none;">
       <input type="text" name="img" value="https://i.ibb.co/NLh23Vf/confident-mood.png" style="display: none;">
-      
+
       <button class="button-doodle" type="submit"><img class="doodle-mood"
           src="https://i.ibb.co/NLh23Vf/confident-mood.png" alt="Positive-mood-icon"></button>
     </form>
@@ -43,7 +41,7 @@
     <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
       <input type="text" name="mood" value="Angry" style="display: none;">
       <input type="text" name="img" value="https://i.ibb.co/qyvVsPN/angry-mood.png" style="display: none;">
-      
+
       <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/qyvVsPN/angry-mood.png"
           alt="angry-mood-icon"></button>
     </form>
@@ -54,7 +52,7 @@
     <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
       <input type="text" name="mood" value="Sad" style="display: none;">
       <input type="text" name="img" value="https://i.ibb.co/v1cdS4s/sad-mood.png" style="display: none;">
-      
+
       <button class="button-doodle" type="submit"><img class="doodle-mood" src="https://i.ibb.co/v1cdS4s/sad-mood.png"
           alt="sad-mood-icon"></button>
     </form>
@@ -65,7 +63,7 @@
     <form class="form-doodle-mood" action="/mood/new/{{date}}" method="POST">
       <input type="text" name="mood" value="Chaotic" style="display: none;">
       <input type="text" name="img" value="https://i.ibb.co/hFLGg8r/confused-mood.png" style="display: none;">
-      
+
       <button class="button-doodle" type="submit"><img class="doodle-mood"
           src="https://i.ibb.co/hFLGg8r/confused-mood.png" alt="chaotic-mood-icon"></button>
     </form>
@@ -75,38 +73,30 @@
 
 {{!-- Each mood with his name, img (if it's a clicked one) and button to edit and delete --}}
 <div class="your-day-mood">
-
   <ul>
     {{#each moods}}
     <div class="mood">
-      
       <img class="doodle-mood" src="{{this.img}}" alt="{{this.img}}">
       <li>{{this.mood}}</li>
-
       <div class="text-diary">
-         <p>{{this.diary}}</p>
+        <p>{{this.diary}}</p>
       </div>
-
-      
       <div class="edit-delete-button">
         <div class="edit">
           <form action="/edit-mood/{{this._id}}" method="GET">
             <a class="delete-mood"><button type="submit"><i class="far fa-edit"></i>Mood</button></a>
           </form>
         </div>
-
-         <div class="edit">
+        <div class="edit">
           <form action="/edit-diary/{{this._id}}" method="GET">
             <a class="delete-mood"><button type="submit"><i class="far fa-edit"></i>Diary</button></a>
           </form>
         </div>
-        
         <div class="delete">
           <form class="form-delete-mood" action="/new/delete/{{_id}}" method="POST">
             <a class="delete-mood"><button type="submit"><i class="far fa-trash-alt"></i></button></a>
           </form>
         </div>
-      
       </div>
     </div>
     {{/each}}
@@ -118,42 +108,21 @@
   <div class="form-container create-mood">
     <form action="/mood/new/{{date}}" method="POST">
       <div class="input">
-
         <label for="mood"></label>
         <p class="tell-more">If your mood today doesn't match with anyone on the top, create you own</p>
         <input type="text" name="mood">
-
         <a class="anchor-buttons"><button class="buttons" type="submit">Create</button></a>
-
       </div>
     </form>
   </div>
-
-  {{!-- <div class="form-container">
-    <p class="tell-more">Tell me more </p>
-
-    <form action="/mood/new/{{date}}" method="POST">
-      <div class="input">
-
-        <label for="diary"></label>
-        <textarea class="text-area" type="text" name="diary" rows="10" cols="50"></textarea>
-        <a class="btn"><button type="submit">Save</button></a>
-
-      </div>
-    </form>
-  </div> --}}
+</div>
 {{/unless}}
-{{!-- Create your own mood form --}}
 
+<div class="container-mood">
+  {{#if errorMessage}}
+  <div class="error-message">
+    <p>{{this.errorMessage}}</p>
+  </div>
+  {{/if}}
 
-        
 </div>
-
-
-</div>
-
-{{#if errorMessage}}
-<div class="error-message">
-<p>{{this.errorMessage}}</p> 
-</div>
-{{/if}}

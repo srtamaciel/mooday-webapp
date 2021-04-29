@@ -1,28 +1,23 @@
 <div class="edit-page-buttons">
-<span><a href="/mood/new/{{result.date}}" class="btn navbar"><i class="fas fa-arrow-left"></i></a></span>
-
+  <span><a href="/mood/new/{{result.date}}" class="btn navbar"><i class="fas fa-arrow-left"></i></a></span>
 </div>
 
 <div class="container-mood">
   <div class="form-container">
-    
-    <p>Tell me more</p>
-
+    <p>How was the day?</p>
     <form action="/edit-diary/{{result._id}}" method="POST">
       <div class="input">
-
         <label for="diary">{{result.diary}}</label>
         <textarea class="text-area" type="text" name="diary" rows="10" cols="50"></textarea>
-
         <a class="anchor-buttons"><button class="buttons" type="submit">Send</button></a>
-
       </div>
     </form>
   </div>
 
- 
-{{#if errorMessage}}
-<div class="error-message">
-<p>{{this.errorMessage}}</p> 
+  {{#if errorMessage}}
+  <div class="error-message">
+    <p>{{this.errorMessage}}</p>
+  </div>
+  {{/if}}
+  
 </div>
-{{/if}}

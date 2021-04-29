@@ -4,7 +4,7 @@ const router  = express.Router();
 const Mood = require('../models/Mood.model');
 const User = require('../models/User.model');
 
-//Middleware
+//MIDDLEWARE
 const checkForAuth = (req, res, next) =>{
   if(req.isAuthenticated()){
     return next()
@@ -14,12 +14,12 @@ const checkForAuth = (req, res, next) =>{
  }
 
 
-//GET homepage
+//GET HOMEPAGE
 router.get('/', (req, res, next) => {
   res.render('index');
 });
 
-//GET profile private page
+//GET PROFILE AFTER AUTENTIFICATION
 router.get('/profile', checkForAuth, (req, res, next) => {
 
   User.findById(req.user._id)

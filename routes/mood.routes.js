@@ -5,7 +5,7 @@ const Mood = require('../models/Mood.model');
 const User = require('../models/User.model');
 let thisDate;
 
-//Middleware
+//MIDDLEWARE
 const checkForAuth = (req, res, next) =>{
   if(req.isAuthenticated()){
     return next()
@@ -14,7 +14,7 @@ const checkForAuth = (req, res, next) =>{
   }
  }
 
-//GET New mood
+//GET MOOD FOR A PICKED DAY
 router.get('/mood/new/:date', checkForAuth, (req, res) => {
   Mood.find({date: req.params.date})
   .then((result)=>{
@@ -71,7 +71,7 @@ router.post('/mood/new/:date', (req, res)=>{
   })
 })
 
-//GET MOOD
+//GET SEE CREATED MOOD
  router.get('/new/:_id', (req, res) => {
   Mood.findById(req.params)
   .then((result)=>{
@@ -102,7 +102,7 @@ router.post('/new/delete/:_id', (req, res) => {
 })
 
 
-//GET MODIFY MOOD
+//GET EDIT MOOD
 router.get('/edit-mood/:_id', (req, res) => {
   Mood.findById(req.params._id)
   .then((result)=>{
@@ -115,9 +115,8 @@ router.get('/edit-mood/:_id', (req, res) => {
   
 })
 
-//POST MODIFY MOOD
+//POST EDIT MOOD
 router.post('/edit-mood/:_id', (req, res) => {
-
   Mood.findByIdAndUpdate(req.params._id, req.body)
     .then((result) => {
       console.log(req.body)
@@ -130,9 +129,7 @@ router.post('/edit-mood/:_id', (req, res) => {
   })
 
 
-
-
-//GET MODIFY DIARY
+//GET EDIT DIARY
   router.get('/edit-diary/:_id', (req, res) => {
     Mood.findById(req.params._id)
     .then((result)=>{
@@ -145,9 +142,8 @@ router.post('/edit-mood/:_id', (req, res) => {
     
   })
   
-  //POST MODIFY DIARY
+  //POST EDIT DIARY
   router.post('/edit-diary/:_id', (req, res) => {
-  
     Mood.findByIdAndUpdate(req.params._id, req.body)
       .then((result) => {
         console.log(req.body)
@@ -159,9 +155,4 @@ router.post('/edit-mood/:_id', (req, res) => {
       })
     })
   
-
-  
-  
-
-
 module.exports = router;

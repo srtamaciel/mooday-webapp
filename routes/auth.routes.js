@@ -36,12 +36,12 @@ User.findOne({username})
 });
 })
 
-//GET login page
+//GET LOGIN
 router.get('/login', (req, res) => {
   res.render('login', {errorMessage: req.flash('error')})
 })
 
-//POST login page
+//POST LOGIN
 router.post('/login', passport.authenticate('local', {
   successRedirect: '/profile',
   failureRedirect: '/login',
