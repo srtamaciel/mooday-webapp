@@ -27,7 +27,7 @@ User.findOne({username})
     const hashedPassword = bcrypt.hashSync(password, 10)
     User.create({username, password: hashedPassword})
     .then(() => {
-      res.render('login', {signUpMsg: `Congrats! You're account has been created!`})
+      res.render('login', {signUpMsg: `Congrats! Your account has been created!`})
     })
   }
 })
